@@ -590,14 +590,14 @@ channel."
 
 ;;;; Drawer
 
-(defun org-rst-drawer (drawer contents _info)
+(defun org-rst-drawer (drawer contents info)
   "Transcode a DRAWER element from Org to reStructuredText.
 CONTENTS holds the contents of the block.  INFO is a plist
 holding contextual information."
   (let* ((name (org-element-property :drawer-name drawer))
 	 (output (if (functionp org-rst-format-drawer-function)
 		     (funcall org-rst-format-drawer-function
-			      name contents)
+			      name contents info)
 		   ;; If there's no user defined function: simply
 		   ;; display contents of the drawer.
 		   contents)))
