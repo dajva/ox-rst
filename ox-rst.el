@@ -444,7 +444,7 @@ See `org-rst-text-markup-alist' for details."
      ((eq 'verb fmt)
       (let ((rtn "")
 	    char)
-		(while (string-match "\\`*" text)
+		(while (string-match "`+" text)
 		  (setq char (match-string 0 text))
 		  (when (> (match-beginning 0) 0)
 			  (setq rtn (concat rtn (substring text 0 (match-beginning 0)))))
